@@ -1,0 +1,6 @@
+C:\GodotProjects\CoinCollectorGame\.mono\temp\obj\Debug\Coin Colector Game.csprojAssemblyReference.cache
+C:\GodotProjects\CoinCollectorGame\.mono\temp\obj\Debug\Coin Colector Game.csproj.CoreCompileInputs.cache
+C:\GodotProjects\CoinCollectorGame\.mono\temp\bin\Debug\Coin Colector Game.dll
+C:\GodotProjects\CoinCollectorGame\.mono\temp\bin\Debug\Coin Colector Game.pdb
+C:\GodotProjects\CoinCollectorGame\.mono\temp\obj\Debug\Coin Colector Game.dll
+C:\GodotProjects\CoinCollectorGame\.mono\temp\obj\Debug\Coin Colector Game.pdb

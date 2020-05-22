@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Imports/Fonts/BalsamiqSans-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/YouWinMenue.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/YouWinButton.cs" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 90
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "YouWinAnimation"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 2.37841, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -623.089 ), Vector2( 0, -110 ) ]
+}
+
+[node name="YouWinLabel" type="Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -1163.09
+margin_right = 960.0
+margin_bottom = -83.0861
+custom_fonts/font = SubResource( 1 )
+text = "YOU WIN"
+align = 1
+valign = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YouWinButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -263.5
+margin_top = 84.9995
+margin_right = 263.5
+margin_bottom = 199.0
+custom_fonts/font = SubResource( 2 )
+shortcut_in_tooltip = false
+action_mode = 0
+text = "PLAY AGAIN"
+flat = true
+expand_icon = true
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YouWinAnimPlayer" type="AnimationPlayer" parent="."]
+anims/YouWinAnimation = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="pressed" from="YouWinButton" to="YouWinButton" method="YouWinButtonPressed"]

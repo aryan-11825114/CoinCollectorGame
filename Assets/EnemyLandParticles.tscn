@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 1.11202, 0, 0, Vector2( 0.489317, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.996032, 0.0231564 ), -0.668953, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+flatness = 0.8
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 35.0
+initial_velocity_random = 1.0
+angular_velocity = 360.0
+angular_velocity_random = 0.2
+angle = 360.0
+angle_random = 1.0
+scale_random = 0.5
+scale_curve = SubResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=4]
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 0, 0, 1 )
+roughness = 0.63
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
+
+[node name="Particles" type="Particles"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+cast_shadow = 0
+amount = 15
+lifetime = 0.5
+explosiveness = 1.0
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )
