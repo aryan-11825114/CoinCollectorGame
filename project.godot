@@ -16,13 +16,15 @@ _global_script_class_icons={
 [application]
 
 config/name="Coin Colector Game"
-run/main_scene="res://Scenes/Level.tscn"
+run/main_scene="res://Scenes/OrangeMenue.tscn"
+boot_splash/image="res://Imports/Images/OrangeLoadinScreen.png"
 config/icon="res://icon.png"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/size/always_on_top=true
 window/dpi/allow_hidpi=true
 window/stretch/aspect="keep"

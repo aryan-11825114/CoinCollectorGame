@@ -60,8 +60,11 @@
     <Compile Include="Scripts\CoinRoot.cs" />
     <Compile Include="Scripts\Enemy.cs" />
     <Compile Include="Scripts\EnemyRootScript.cs" />
+    <Compile Include="Scripts\ExitMainMeneButton2.cs" />
     <Compile Include="Scripts\GameRule.cs" />
+    <Compile Include="Scripts\MainMenue.cs" />
     <Compile Include="Scripts\Orange.cs" />
+    <Compile Include="Scripts\OrangeCamera.cs" />
     <Compile Include="Scripts\RootScript.cs" />
     <Compile Include="Scripts\YouLooseMenueButtonPressed.cs" />
     <Compile Include="Scripts\YouWinButton.cs" />

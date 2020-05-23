@@ -112,7 +112,6 @@ shape = SubResource( 4 )
 [node name="VisibilityEnabler" type="VisibilityEnabler" parent="Enemy"]
 transform = Transform( 1.90697, 0, 0, 0, 0.808937, 0, 0, 0, 1.78481, 3.39966e-10, -0.00657809, 0 )
 aabb = AABB( -0.525677, -1.25626, -0.558084, 1.05135, 2.51252, 1.11617 )
-pause_animations = false
 
 [node name="Particles" parent="Enemy" instance=ExtResource( 3 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.605375, 0 )
