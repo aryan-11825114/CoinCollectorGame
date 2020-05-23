@@ -23,6 +23,7 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
+window/size/always_on_top=true
 window/dpi/allow_hidpi=true
 window/stretch/aspect="keep"
 
@@ -55,8 +56,6 @@ MoveRight={
 
 [rendering]
 
-vram_compression/import_s3tc=false
-vram_compression/import_etc2=false
 quality/filters/msaa=3
 environment/default_environment="res://Scenes/LevelEnvironment.tres"
 threads/energy_saving/keep_screen_on=true
