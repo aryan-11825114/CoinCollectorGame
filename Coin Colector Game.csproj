@@ -54,18 +54,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scenes\YouLooseHud.cs" />
     <Compile Include="Scripts\Coin.cs" />
     <Compile Include="Scripts\CoinCounter.cs" />
     <Compile Include="Scripts\CoinRoot.cs" />
     <Compile Include="Scripts\Enemy.cs" />
     <Compile Include="Scripts\EnemyRootScript.cs" />
-    <Compile Include="Scripts\GameOverButton.cs" />
-    <Compile Include="Scripts\GameOverMenue.cs" />
     <Compile Include="Scripts\GameRule.cs" />
     <Compile Include="Scripts\Orange.cs" />
     <Compile Include="Scripts\RootScript.cs" />
+    <Compile Include="Scripts\YouLooseMenueButtonPressed.cs" />
     <Compile Include="Scripts\YouWinButton.cs" />
-    <Compile Include="Scripts\YouWinMenue.cs" />
+    <Compile Include="Scripts\YouWinHud.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

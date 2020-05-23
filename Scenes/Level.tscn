@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Orange.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Orange.cs" type="Script" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://Assets/Coin.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/YouWinMenue.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/GameOverMenue.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/YouLooseHudTest.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/BricksMeshLibrary.tres" type="MeshLibrary" id=8]
 [ext_resource path="res://Assets/CoinHud.tscn" type="PackedScene" id=9]
 
@@ -18,6 +18,38 @@ extents = Vector3( 1, 0.001, 1 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 1, 0.494118, 0, 1 )
 roughness = 0.7
+
+[sub_resource type="Animation" id=4]
+resource_name = "YouLooseHud"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 960, -90 ), Vector2( 960, 540 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "YouWinHud"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 0.466516, 1 ),
+"update": 0,
+"values": [ Vector2( 960, -90 ), Vector2( 960, 540 ) ]
+}
 
 [node name="Level" type="Node"]
 script = ExtResource( 3 )
@@ -55,7 +87,7 @@ mesh_library = ExtResource( 8 )
 cell_size = Vector3( 2, 0.9, 2 )
 cell_octant_size = 36
 data = {
-"cells": PoolIntArray( 65550, 0, 0, 131057, 0, 0, 65550, 1, 0, 131057, 1, 0, 65550, 2, 0, 131057, 2, 0, 65550, 3, 0, 131057, 3, 0, 65550, 4, 0, 131057, 4, 0, 65550, 5, 0, 131057, 5, 0, 65550, 6, 0, 131057, 6, 0, 65550, 7, 0, 131057, 7, 0, 65550, 8, 0, 131057, 8, 0, 65550, 9, 0, 131057, 9, 0, 65550, 10, 0, 131057, 10, 0, 65550, 11, 0, 131057, 11, 0, 65550, 12, 0, 131057, 12, 0, 65550, 13, 0, 131057, 13, 0, 65536, 14, 0, 65537, 14, 0, 65538, 14, 0, 65539, 14, 0, 65540, 14, 0, 65541, 14, 0, 65542, 14, 0, 65543, 14, 0, 65544, 14, 0, 65545, 14, 0, 65546, 14, 0, 65547, 14, 0, 65548, 14, 0, 65549, 14, 0, 65550, 14, 0, 131057, 14, 0, 131058, 14, 0, 131059, 14, 0, 131060, 14, 0, 131061, 14, 0, 131062, 14, 0, 131063, 14, 0, 131064, 14, 0, 131065, 14, 0, 131066, 14, 0, 131067, 14, 0, 131068, 14, 0, 131069, 14, 0, 131070, 14, 536870912, 131071, 14, 0, 65536, 65521, 0, 65537, 65521, 0, 65538, 65521, 0, 65539, 65521, 0, 65540, 65521, 0, 65541, 65521, 0, 65542, 65521, 0, 65543, 65521, 0, 65544, 65521, 0, 65545, 65521, 0, 65546, 65521, 0, 65547, 65521, 0, 65548, 65521, 0, 65549, 65521, 0, 65550, 65521, 0, 131057, 65521, 0, 131058, 65521, 0, 131059, 65521, 0, 131060, 65521, 0, 131061, 65521, 0, 131062, 65521, 536870912, 131063, 65521, 0, 131064, 65521, 0, 131065, 65521, 0, 131066, 65521, 0, 131067, 65521, 0, 131068, 65521, 0, 131069, 65521, 0, 131070, 65521, 0, 131071, 65521, 0, 65550, 65522, 0, 131057, 65522, 0, 65550, 65523, 0, 131057, 65523, 0, 65550, 65524, 0, 131057, 65524, 536870912, 65550, 65525, 0, 131057, 65525, 0, 65550, 65526, 0, 131057, 65526, 0, 65550, 65527, 0, 131057, 65527, 0, 65550, 65528, 0, 131057, 65528, 0, 65550, 65529, 0, 131057, 65529, 0, 65550, 65530, 0, 131057, 65530, -536870912, 65550, 65531, 0, 131057, 65531, -536870912, 65550, 65532, 0, 131057, 65532, 0, 65550, 65533, 0, 131057, 65533, 0, 65550, 65534, 0, 131057, 65534, 0, 65550, 65535, 0, 131057, 65535, 0 )
+"cells": PoolIntArray( 65550, 0, 0, 131057, 0, 0, 65550, 1, 0, 131057, 1, 0, 65550, 2, 0, 131057, 2, 0, 65550, 3, 0, 131057, 3, 0, 65550, 4, 0, 131057, 4, 536870912, 65550, 5, 0, 131057, 5, 0, 65550, 6, 0, 131057, 6, 0, 65550, 7, 0, 131057, 7, 0, 65550, 8, 0, 131057, 8, 0, 65550, 9, 0, 131057, 9, 536870912, 65550, 10, 0, 131057, 10, 0, 65550, 11, 0, 131057, 11, 0, 65550, 12, 0, 131057, 12, 0, 65550, 13, 0, 131057, 13, 0, 65536, 14, 0, 65537, 14, 0, 65538, 14, 0, 65539, 14, 0, 65540, 14, 0, 65541, 14, 0, 65542, 14, 0, 65543, 14, 0, 65544, 14, 0, 65545, 14, 0, 65546, 14, 0, 65547, 14, 0, 65548, 14, 0, 65549, 14, 0, 65550, 14, 0, 131057, 14, 0, 131058, 14, 0, 131059, 14, 0, 131060, 14, 0, 131061, 14, 0, 131062, 14, 0, 131063, 14, 0, 131064, 14, 0, 131065, 14, 0, 131066, 14, 0, 131067, 14, 0, 131068, 14, 0, 131069, 14, 0, 131070, 14, 0, 131071, 14, 0, 65536, 65521, 0, 65537, 65521, 0, 65538, 65521, 0, 65539, 65521, 0, 65540, 65521, 0, 65541, 65521, 0, 65542, 65521, 0, 65543, 65521, 0, 65544, 65521, 0, 65545, 65521, 0, 65546, 65521, 0, 65547, 65521, 0, 65548, 65521, 0, 65549, 65521, 0, 65550, 65521, 0, 131057, 65521, 0, 131058, 65521, 0, 131059, 65521, 0, 131060, 65521, 0, 131061, 65521, 0, 131062, 65521, 0, 131063, 65521, 0, 131064, 65521, 0, 131065, 65521, 0, 131066, 65521, 0, 131067, 65521, 0, 131068, 65521, 0, 131069, 65521, 1073741824, 131070, 65521, 0, 131071, 65521, 0, 65550, 65522, 0, 131057, 65522, 0, 65550, 65523, 0, 131057, 65523, 0, 65550, 65524, 0, 131057, 65524, 0, 65550, 65525, 0, 131057, 65525, 0, 65550, 65526, 0, 131057, 65526, 0, 65550, 65527, 0, 131057, 65527, 0, 65550, 65528, 0, 131057, 65528, 0, 65550, 65529, 0, 131057, 65529, 0, 65550, 65530, 0, 131057, 65530, 0, 65550, 65531, 0, 131057, 65531, 0, 65550, 65532, 0, 131057, 65532, 0, 65550, 65533, 0, 131057, 65533, 0, 65550, 65534, 0, 131057, 65534, 0, 65550, 65535, 0, 131057, 65535, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -142,15 +174,29 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -
 
 [node name="Hud" type="Node" parent="."]
 
-[node name="YouWinLabel" parent="Hud" instance=ExtResource( 5 )]
-
-[node name="GameOverLabel" parent="Hud" instance=ExtResource( 7 )]
-
 [node name="CoinHud" parent="Hud" instance=ExtResource( 9 )]
-[connection signal="YouLoose" from="." to="Hud/GameOverLabel" method="YouLoose"]
+
+[node name="YouLooseHud" parent="Hud" instance=ExtResource( 7 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -630.0
+margin_bottom = -630.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hud/YouLooseHud"]
+anims/YouLooseHud = SubResource( 4 )
+
+[node name="YouWinHud" parent="Hud" instance=ExtResource( 5 )]
+margin_top = -630.0
+margin_bottom = -590.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hud/YouWinHud"]
+anims/YouWinHud = SubResource( 5 )
 [connection signal="YouLoose" from="." to="Orange/OrangeKinematic" method="YouLoose"]
-[connection signal="YouWin" from="." to="Hud/YouWinLabel" method="YouWin"]
+[connection signal="YouLoose" from="." to="Hud/YouLooseHud" method="YouLoose"]
 [connection signal="YouWin" from="." to="Orange/OrangeKinematic" method="YouWin"]
+[connection signal="YouWin" from="." to="Hud/YouWinHud" method="YouWin"]
 [connection signal="CoinCollected" from="Coins/CoinHolder1/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder1/Coin" to="Hud/CoinHud" method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder2/Coin" to="." method="CoinCollected"]

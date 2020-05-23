@@ -1,12 +1,12 @@
 using Godot;
 
-public class YouWinButton : Button
+public class YouLooseMenueButtonPressed : Button
 {
 	public override void _Ready()
 	{
 	}
 
-	private void YouWinButton_pressed()
+	private void ButtonPressed()
 	{
 		GetTree().ReloadCurrentScene();
 	}
