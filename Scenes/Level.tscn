@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Assets/Orange.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Orange.cs" type="Script" id=2]
@@ -28,7 +28,7 @@ uv1_offset = Vector3( 89.543, 90, 90 )
 uv1_triplanar = true
 uv2_triplanar = true
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Enemy1Animation"
 length = 8.4
 loop = true
@@ -55,6 +55,64 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Enemy1Animation"
+length = 8.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.8, 4.2, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.5, 0, 5.5 ), Vector3( -0.5, 0, 17.5 ), Vector3( -0.5, 0, 17.5 ), Vector3( -0.5, 0, 5.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.8, 4.2, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Enemy2Animation"
+length = 9.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.8, 3.2, 4.6, 5, 6.1, 6.5, 9.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -9.5, 0, -9.81579 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -5.5, 0, 1.18421 ), Vector3( -5.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, -9.81579 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.8, 3.2, 4.6, 5, 6.1, 6.5, 9.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -115,8 +173,297 @@ tracks/1/keys = {
 "values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "YouLooseHud"
+[sub_resource type="Animation" id=9]
+resource_name = "Enemy3Animation"
+length = 12.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.7, 4.1, 5.9, 6.3, 8.1, 8.5, 12.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 9.5, 0, 0.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 2.5, 0, -13.5 ), Vector3( 2.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.7, 4.1, 5.9, 6.3, 8.1, 8.5, 12.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 6.83019e-06, 0 ), Vector3( 0, 6.83019e-06, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Enemy1Animation"
+length = 8.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.8, 4.2, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.5, 0, 5.5 ), Vector3( -0.5, 0, 17.5 ), Vector3( -0.5, 0, 17.5 ), Vector3( -0.5, 0, 5.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.8, 4.2, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Enemy2Animation"
+length = 9.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.8, 3.2, 4.6, 5, 6.1, 6.5, 9.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -9.5, 0, -9.81579 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -5.5, 0, 1.18421 ), Vector3( -5.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, -9.81579 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.8, 3.2, 4.6, 5, 6.1, 6.5, 9.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Enemy3Animation"
+length = 12.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.7, 4.1, 5.9, 6.3, 8.1, 8.5, 12.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 9.5, 0, 0.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 2.5, 0, -13.5 ), Vector3( 2.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.7, 4.1, 5.9, 6.3, 8.1, 8.5, 12.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 6.83019e-06, 0 ), Vector3( 0, 6.83019e-06, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Enemy4Animation"
+length = 24.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5.8, 6.2, 11.8, 12.2, 17.7, 18.2, 24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 17.5, 0, -3.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 4.5, 0, 17.5 ), Vector3( 4.5, 0, 17.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 17.5, 0, -3.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.8, 6.2, 11.8, 12.2, 17.7, 18.2, 24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -1.36604e-05, 0 ), Vector3( 0, -1.36604e-05, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Enemy1Animation"
+length = 8.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.8, 4.2, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -0.5, 0, 5.5 ), Vector3( -0.5, 0, 17.5 ), Vector3( -0.5, 0, 17.5 ), Vector3( -0.5, 0, 5.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.8, 4.2, 8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Enemy2Animation"
+length = 9.7
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.8, 3.2, 4.6, 5, 6.1, 6.5, 9.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -9.5, 0, -9.81579 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -5.5, 0, 1.18421 ), Vector3( -5.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, 1.18421 ), Vector3( -9.5, 0, -9.81579 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.8, 3.2, 4.6, 5, 6.1, 6.5, 9.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Enemy3Animation"
+length = 12.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.7, 4.1, 5.9, 6.3, 8.1, 8.5, 12.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 9.5, 0, 0.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 2.5, 0, -13.5 ), Vector3( 2.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, -13.5 ), Vector3( 9.5, 0, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.7, 4.1, 5.9, 6.3, 8.1, 8.5, 12.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 6.83019e-06, 0 ), Vector3( 0, 6.83019e-06, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "Enemy4Animation"
+length = 24.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5.8, 6.2, 11.8, 12.2, 17.7, 18.2, 24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 17.5, 0, -3.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 4.5, 0, 17.5 ), Vector3( 4.5, 0, 17.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 17.5, 0, 17.5 ), Vector3( 17.5, 0, -3.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.8, 6.2, 11.8, 12.2, 17.7, 18.2, 24 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -180, 0 ), Vector3( 0, -1.36604e-05, 0 ), Vector3( 0, -1.36604e-05, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Enemy5Animation"
+length = 23.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("..:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 7.1, 7.6, 11.1, 11.6, 15.4, 15.9, 23 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 4.5, 0, 5.5 ), Vector3( -17.5, 0, 5.5 ), Vector3( -17.5, 0, 5.5 ), Vector3( -17.5, 0, 17.5 ), Vector3( -17.5, 0, 17.5 ), Vector3( -17.5, 0, 5.5 ), Vector3( -17.5, 0, 5.5 ), Vector3( 4.5, 0, 5.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("..:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 7.1, 7.6, 11.1, 11.6, 15.4, 15.9, 23 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 180, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, -6.83019e-06, 0 ), Vector3( 0, -6.83019e-06, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -131,8 +478,7 @@ tracks/0/keys = {
 "values": [ Vector2( 960, -90 ), Vector2( 960, 540 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "YouWinHud"
+[sub_resource type="Animation" id=11]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -174,7 +520,6 @@ transform = Transform( -20, 0, -1.74846e-06, 0, 1, 0, 1.74846e-06, 0, -20, 0, 0.
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Enviornment/Floor"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
@@ -184,7 +529,7 @@ mesh_library = ExtResource( 8 )
 cell_size = Vector3( 2, 0.9, 2 )
 cell_octant_size = 36
 data = {
-"cells": PoolIntArray( 65543, 0, 1, 65547, 0, 1, 65555, 0, 0, 131052, 0, 0, 131056, 0, 1, 65543, 1, 536870913, 65547, 1, 1, 65555, 1, 0, 131052, 1, 0, 131056, 1, 1, 65538, 2, 1073741825, 65543, 2, 1, 65547, 2, 1, 65555, 2, 0, 131052, 2, 0, 131056, 2, -1610612735, 131068, 2, -1610612735, 65536, 3, -1610612735, 65537, 3, 536870913, 65538, 3, 1, 65543, 3, 1, 65544, 3, 1073741825, 65545, 3, 1, 65546, 3, 1073741825, 65547, 3, 1073741825, 65548, 3, 1073741825, 65549, 3, 536870913, 65550, 3, 1, 65551, 3, 1, 65555, 3, 0, 131052, 3, 0, 131056, 3, 1073741825, 131060, 3, 536870913, 131061, 3, 1, 131062, 3, 1, 131063, 3, 1, 131064, 3, -1610612735, 131065, 3, 1, 131066, 3, 1, 131067, 3, 536870913, 131068, 3, 1, 131069, 3, 1073741825, 131070, 3, 1, 131071, 3, 536870913, 65551, 4, 1, 65555, 4, 0, 131052, 4, 0, 65551, 5, 1, 65555, 5, 0, 131052, 5, 0, 65551, 6, 1, 65555, 6, 0, 131052, 6, 0, 65537, 7, 1073741825, 65538, 7, 1, 65539, 7, 1, 65540, 7, 1, 65541, 7, 1, 65542, 7, 1, 65547, 7, -1610612735, 65551, 7, 1, 65555, 7, 0, 131052, 7, 0, 131056, 7, 1, 131060, 7, 1073741825, 131061, 7, 1, 131062, 7, -1610612735, 131063, 7, -1610612735, 131064, 7, 536870913, 131065, 7, -1610612735, 131069, 7, -1610612735, 65537, 8, 536870913, 65547, 8, 1, 65555, 8, 0, 131052, 8, 0, 131056, 8, 1, 131065, 8, 536870913, 131069, 8, 536870913, 65537, 9, 1, 65547, 9, 536870913, 65555, 9, 0, 131052, 9, 0, 131056, 9, 1, 131065, 9, 1, 131069, 9, 1, 65537, 10, -1610612735, 65547, 10, 1073741825, 65555, 10, 0, 131052, 10, 0, 131056, 10, 1, 131065, 10, 1, 131069, 10, -1610612735, 65537, 11, 1, 65538, 11, 536870913, 65542, 11, -1610612735, 65543, 11, 1073741825, 65544, 11, -1610612735, 65545, 11, -1610612735, 65546, 11, 1, 65547, 11, 1, 65551, 11, 1073741825, 65555, 11, 0, 131052, 11, 0, 131056, 11, 1, 131057, 11, -1610612735, 131058, 11, 1, 131059, 11, 1, 131060, 11, 1, 131065, 11, 1073741825, 131069, 11, -1610612735, 65551, 12, -1610612735, 65555, 12, 0, 131052, 12, 0, 131060, 12, 1, 131069, 12, -1610612735, 65551, 13, -1610612735, 65555, 13, 0, 131052, 13, 0, 131060, 13, 536870913, 131069, 13, -1610612735, 65551, 14, 536870913, 65555, 14, 0, 131052, 14, 0, 131060, 14, 1, 131069, 14, 1, 65537, 15, 1, 65538, 15, 1073741825, 65542, 15, 536870913, 65543, 15, 1, 65544, 15, 1, 65545, 15, -1610612735, 65546, 15, 1, 65547, 15, 1, 65548, 15, 1, 65549, 15, 1, 65550, 15, 1073741825, 65551, 15, -1610612735, 65555, 15, 0, 131052, 15, 0, 131056, 15, 1073741825, 131057, 15, 1, 131058, 15, -1610612735, 131059, 15, 1, 131060, 15, 1073741825, 131061, 15, 1, 131062, 15, 1, 131063, 15, -1610612735, 131064, 15, 1, 131065, 15, 1, 131069, 15, 1, 65537, 16, 536870913, 65555, 16, 0, 131052, 16, 0, 131056, 16, 1, 131069, 16, 1073741825, 65537, 17, -1610612735, 65555, 17, 0, 131052, 17, 0, 131056, 17, -1610612735, 131069, 17, 1, 65537, 18, 1, 65555, 18, 0, 131052, 18, 0, 131056, 18, 1073741825, 131069, 18, 1, 65536, 19, 0, 65537, 19, 0, 65538, 19, 0, 65539, 19, 0, 65540, 19, 0, 65541, 19, 0, 65542, 19, 0, 65543, 19, 0, 65544, 19, 0, 65545, 19, 0, 65546, 19, 0, 65547, 19, 0, 65548, 19, 0, 65549, 19, 0, 65550, 19, 0, 65551, 19, 0, 65552, 19, 0, 65553, 19, 0, 65554, 19, 0, 65555, 19, 0, 131052, 19, 0, 131053, 19, 0, 131054, 19, 0, 131055, 19, 0, 131056, 19, 0, 131057, 19, 0, 131058, 19, 0, 131059, 19, 0, 131060, 19, 0, 131061, 19, 0, 131062, 19, 0, 131063, 19, 0, 131064, 19, 0, 131065, 19, 0, 131066, 19, 0, 131067, 19, 0, 131068, 19, 0, 131069, 19, 0, 131070, 19, 0, 131071, 19, 0, 65536, 65516, 0, 65537, 65516, 0, 65538, 65516, 0, 65539, 65516, 0, 65540, 65516, 0, 65541, 65516, 0, 65542, 65516, 0, 65543, 65516, 0, 65544, 65516, 0, 65545, 65516, 0, 65546, 65516, 0, 65547, 65516, 0, 65548, 65516, 0, 65549, 65516, 0, 65550, 65516, 0, 65551, 65516, 0, 65552, 65516, 0, 65553, 65516, 0, 65554, 65516, 0, 65555, 65516, 0, 131052, 65516, 0, 131053, 65516, 0, 131054, 65516, 0, 131055, 65516, 0, 131056, 65516, 0, 131057, 65516, 0, 131058, 65516, 0, 131059, 65516, 0, 131060, 65516, 0, 131061, 65516, 0, 131062, 65516, 0, 131063, 65516, 0, 131064, 65516, 0, 131065, 65516, 0, 131066, 65516, 0, 131067, 65516, 0, 131068, 65516, 0, 131069, 65516, 0, 131070, 65516, 0, 131071, 65516, 0, 65551, 65517, 1, 65555, 65517, 0, 131052, 65517, 0, 131064, 65517, 1, 65551, 65518, 1, 65555, 65518, 0, 131052, 65518, 0, 131064, 65518, 1, 65551, 65519, 1, 65555, 65519, 0, 131052, 65519, 0, 131064, 65519, -1610612735, 65536, 65520, 1, 65537, 65520, -1610612735, 65538, 65520, 1, 65539, 65520, -1610612735, 65540, 65520, 1, 65541, 65520, 536870913, 65542, 65520, 536870913, 65543, 65520, 536870913, 65544, 65520, -1610612735, 65545, 65520, 1, 65546, 65520, 536870913, 65547, 65520, 1, 65548, 65520, 1, 65549, 65520, 1, 65550, 65520, 1073741825, 65551, 65520, 1, 65555, 65520, 0, 131052, 65520, 0, 131056, 65520, 1073741825, 131060, 65520, 1073741825, 131064, 65520, 1073741825, 131065, 65520, -1610612735, 131066, 65520, -1610612735, 131067, 65520, 1073741825, 131068, 65520, 1073741825, 65536, 65521, -1610612735, 65547, 65521, 1, 65551, 65521, 1073741825, 65555, 65521, 0, 131052, 65521, 0, 131053, 65521, 536870913, 131054, 65521, 1, 131055, 65521, 1, 131056, 65521, 1, 131060, 65521, 1, 131068, 65521, 1073741825, 65536, 65522, 1, 65547, 65522, -1610612735, 65551, 65522, 1, 65555, 65522, 0, 131052, 65522, 0, 131060, 65522, 536870913, 131068, 65522, 1, 65536, 65523, 1, 65551, 65523, 1, 65555, 65523, 0, 131052, 65523, 0, 131060, 65523, -1610612735, 131068, 65523, 1, 65536, 65524, -1610612735, 65540, 65524, -1610612735, 65541, 65524, 1073741825, 65542, 65524, -1610612735, 65543, 65524, -1610612735, 65551, 65524, 1, 65555, 65524, 0, 131052, 65524, 0, 131060, 65524, 1, 131061, 65524, 1, 131062, 65524, -1610612735, 131063, 65524, 1, 131064, 65524, 1073741825, 131068, 65524, 1073741825, 65540, 65525, 536870913, 65551, 65525, 1, 65555, 65525, 0, 131052, 65525, 0, 131053, 65525, 1073741825, 131054, 65525, 1, 131055, 65525, 1073741825, 131056, 65525, -1610612735, 131060, 65525, 1, 131064, 65525, 1, 65540, 65526, 1, 65547, 65526, 1, 65555, 65526, 0, 131052, 65526, 0, 131060, 65526, 536870913, 131064, 65526, 536870913, 65540, 65527, 1, 65547, 65527, 1, 65555, 65527, 0, 131052, 65527, 0, 131060, 65527, 1, 131064, 65527, -1610612735, 65536, 65528, 1, 65537, 65528, 1, 65538, 65528, 1073741825, 65539, 65528, 1, 65540, 65528, 1, 65541, 65528, -1610612735, 65542, 65528, 1, 65543, 65528, 1, 65547, 65528, 1, 65555, 65528, 0, 131052, 65528, 0, 131060, 65528, -1610612735, 131064, 65528, -1610612735, 131069, 65528, 1, 131070, 65528, 1, 131071, 65528, 1, 65537, 65529, 1, 65547, 65529, 1, 65551, 65529, -1610612735, 65552, 65529, 1073741825, 65553, 65529, 536870913, 65554, 65529, 1, 65555, 65529, 0, 131052, 65529, 0, 131057, 65529, 1, 131058, 65529, 1073741825, 131059, 65529, -1610612735, 131060, 65529, 1073741825, 131064, 65529, -1610612735, 131069, 65529, 1, 65537, 65530, 1, 65551, 65530, 1, 65555, 65530, 0, 131052, 65530, 0, 131064, 65530, 1, 131069, 65530, 1, 65551, 65531, 1, 65555, 65531, 0, 131052, 65531, 0, 131064, 65531, 1, 65543, 65532, 1073741825, 65551, 65532, 1, 65555, 65532, 0, 131052, 65532, 0, 131064, 65532, -1610612735, 65543, 65533, 1, 65547, 65533, 1, 65551, 65533, 1073741825, 65555, 65533, 0, 131052, 65533, 0, 131059, 65533, 1, 131064, 65533, 536870913, 65536, 65534, 1, 65537, 65534, -1610612735, 65538, 65534, 1073741825, 65543, 65534, 1, 65547, 65534, 1, 65551, 65534, -1610612735, 65555, 65534, 0, 131052, 65534, 0, 131056, 65534, 1, 131057, 65534, -1610612735, 131058, 65534, 1, 131059, 65534, 1, 131064, 65534, 1, 131068, 65534, 1, 131069, 65534, 1, 131070, 65534, -1610612735, 131071, 65534, -1610612735, 65538, 65535, -1610612735, 65543, 65535, 1, 65547, 65535, 1, 65551, 65535, 1, 65555, 65535, 0, 131052, 65535, 0, 131056, 65535, 1073741825, 131064, 65535, -1610612735, 131068, 65535, 1073741825 )
+"cells": PoolIntArray( 65543, 0, 1, 65547, 0, 1, 65555, 0, 0, 131052, 0, 0, 131056, 0, 1, 65543, 1, 1, 65547, 1, 1, 65555, 1, 0, 131052, 1, 0, 131056, 1, 1, 65538, 2, 1, 65543, 2, 1, 65547, 2, 1, 65555, 2, 0, 131052, 2, 0, 131056, 2, 1, 131068, 2, 1, 65536, 3, 1, 65537, 3, 1, 65538, 3, 1, 65543, 3, 1, 65544, 3, 1, 65545, 3, 1, 65546, 3, 1, 65547, 3, 1, 65548, 3, 1, 65549, 3, 1, 65550, 3, 1, 65551, 3, 1, 65555, 3, 0, 131052, 3, 0, 131056, 3, 1, 131060, 3, 1, 131061, 3, 1, 131062, 3, 1, 131063, 3, 1, 131064, 3, 1, 131065, 3, 1, 131066, 3, 1, 131067, 3, 1, 131068, 3, 1, 131069, 3, 1, 131070, 3, 1, 131071, 3, 1, 65551, 4, 1, 65555, 4, 0, 131052, 4, 0, 65551, 5, 1, 65555, 5, 0, 131052, 5, 0, 65551, 6, 1, 65555, 6, 0, 131052, 6, 0, 65537, 7, 1, 65538, 7, 1, 65539, 7, 1, 65540, 7, 1, 65541, 7, 1, 65542, 7, 1, 65547, 7, 1, 65551, 7, 1, 65555, 7, 0, 131052, 7, 0, 131056, 7, 1, 131060, 7, 1, 131061, 7, 1, 131062, 7, 1, 131063, 7, 1, 131064, 7, 1, 131065, 7, 1, 131069, 7, 1, 65537, 8, 1, 65547, 8, 1, 65555, 8, 0, 131052, 8, 0, 131056, 8, 1, 131065, 8, 1, 131069, 8, 1, 65537, 9, 1, 65547, 9, 1, 65555, 9, 0, 131052, 9, 0, 131056, 9, 1, 131065, 9, 1, 131069, 9, 1, 65537, 10, 1, 65547, 10, 1, 65555, 10, 0, 131052, 10, 0, 131056, 10, 1, 131065, 10, 1, 131069, 10, 1, 65537, 11, 1, 65538, 11, 1, 65542, 11, 1, 65543, 11, 1, 65544, 11, 1, 65545, 11, 1, 65546, 11, 1, 65547, 11, 1, 65551, 11, 1, 65555, 11, 0, 131052, 11, 0, 131056, 11, 1, 131057, 11, 1, 131058, 11, 1, 131059, 11, 1, 131060, 11, 1, 131065, 11, 1, 131069, 11, 1, 65551, 12, 1, 65555, 12, 0, 131052, 12, 0, 131060, 12, 1, 131069, 12, 1, 65551, 13, 1, 65555, 13, 0, 131052, 13, 0, 131060, 13, 1, 131069, 13, 1, 65551, 14, 1, 65555, 14, 0, 131052, 14, 0, 131060, 14, 1, 131069, 14, 1, 65537, 15, 1, 65538, 15, 1, 65542, 15, 1, 65543, 15, 1, 65544, 15, 1, 65545, 15, 1, 65546, 15, 1, 65547, 15, 1, 65548, 15, 1, 65549, 15, 1, 65550, 15, 1, 65551, 15, 1, 65555, 15, 0, 131052, 15, 0, 131056, 15, 1, 131057, 15, 1, 131058, 15, 1, 131059, 15, 1, 131060, 15, 1, 131061, 15, 1, 131062, 15, 1, 131063, 15, 1, 131064, 15, 1, 131065, 15, 1, 131069, 15, 1, 65537, 16, 1, 65555, 16, 0, 131052, 16, 0, 131056, 16, 1, 131069, 16, 1, 65537, 17, 1, 65555, 17, 0, 131052, 17, 0, 131056, 17, 1, 131069, 17, 1, 65537, 18, 1, 65555, 18, 0, 131052, 18, 0, 131056, 18, 1, 131069, 18, 1, 65536, 19, 0, 65537, 19, 0, 65538, 19, 0, 65539, 19, 0, 65540, 19, 0, 65541, 19, 0, 65542, 19, 0, 65543, 19, 0, 65544, 19, 0, 65545, 19, 0, 65546, 19, 0, 65547, 19, 0, 65548, 19, 0, 65549, 19, 0, 65550, 19, 0, 65551, 19, 0, 65552, 19, 0, 65553, 19, 0, 65554, 19, 0, 65555, 19, 0, 131052, 19, 0, 131053, 19, 0, 131054, 19, 0, 131055, 19, 0, 131056, 19, 0, 131057, 19, 0, 131058, 19, 0, 131059, 19, 0, 131060, 19, 0, 131061, 19, 0, 131062, 19, 0, 131063, 19, 0, 131064, 19, 0, 131065, 19, 0, 131066, 19, 0, 131067, 19, 0, 131068, 19, 0, 131069, 19, 0, 131070, 19, 0, 131071, 19, 0, 65536, 65516, 0, 65537, 65516, 0, 65538, 65516, 0, 65539, 65516, 0, 65540, 65516, 0, 65541, 65516, 0, 65542, 65516, 0, 65543, 65516, 0, 65544, 65516, 0, 65545, 65516, 0, 65546, 65516, 0, 65547, 65516, 0, 65548, 65516, 0, 65549, 65516, 0, 65550, 65516, 0, 65551, 65516, 0, 65552, 65516, 0, 65553, 65516, 0, 65554, 65516, 0, 65555, 65516, 0, 131052, 65516, 0, 131053, 65516, 0, 131054, 65516, 0, 131055, 65516, 0, 131056, 65516, 0, 131057, 65516, 0, 131058, 65516, 0, 131059, 65516, 0, 131060, 65516, 0, 131061, 65516, 0, 131062, 65516, 0, 131063, 65516, 0, 131064, 65516, 0, 131065, 65516, 0, 131066, 65516, 0, 131067, 65516, 0, 131068, 65516, 0, 131069, 65516, 0, 131070, 65516, 0, 131071, 65516, 0, 65551, 65517, 1, 65555, 65517, 0, 131052, 65517, 0, 131064, 65517, 1, 65551, 65518, 1, 65555, 65518, 0, 131052, 65518, 0, 131064, 65518, 1, 65551, 65519, 1, 65555, 65519, 0, 131052, 65519, 0, 131064, 65519, 1, 65536, 65520, 1, 65537, 65520, 1, 65538, 65520, 1, 65539, 65520, 1, 65540, 65520, 1, 65541, 65520, 1, 65542, 65520, 1, 65543, 65520, 1, 65544, 65520, 1, 65545, 65520, 1, 65546, 65520, 1, 65547, 65520, 1, 65548, 65520, 1, 65549, 65520, 1, 65550, 65520, 1, 65551, 65520, 1, 65555, 65520, 0, 131052, 65520, 0, 131056, 65520, 1, 131060, 65520, 1, 131064, 65520, 1, 131065, 65520, 1, 131066, 65520, 1, 131067, 65520, 1, 131068, 65520, 1, 65536, 65521, 1, 65547, 65521, 1, 65551, 65521, 1, 65555, 65521, 0, 131052, 65521, 0, 131053, 65521, 1, 131054, 65521, 1, 131055, 65521, 1, 131056, 65521, 1, 131060, 65521, -1610612735, 131068, 65521, 1610612737, 65536, 65522, 1, 65547, 65522, 1, 65551, 65522, -1610612735, 65555, 65522, 0, 131052, 65522, 536870912, 131060, 65522, -1610612735, 131068, 65522, -1610612735, 65536, 65523, -1610612735, 65551, 65523, 1, 65555, 65523, 0, 131052, 65523, 0, 131060, 65523, 1, 131068, 65523, 1, 65536, 65524, 1, 65540, 65524, 1, 65541, 65524, -1610612735, 65542, 65524, -1073741823, 65543, 65524, -1610612735, 65551, 65524, 1, 65555, 65524, 0, 131052, 65524, 0, 131060, 65524, -1610612735, 131061, 65524, 1, 131062, 65524, 1, 131063, 65524, -1610612735, 131064, 65524, -1610612735, 131068, 65524, 536870913, 65540, 65525, 1, 65551, 65525, 1073741825, 65555, 65525, 0, 131052, 65525, -1610612736, 131053, 65525, 1, 131054, 65525, 1, 131055, 65525, 1, 131056, 65525, 1, 131060, 65525, 1, 131064, 65525, 1073741825, 65540, 65526, 1, 65547, 65526, 1, 65555, 65526, 0, 131052, 65526, 0, 131060, 65526, -1610612735, 131064, 65526, 1, 65540, 65527, 1073741825, 65547, 65527, 1, 65555, 65527, 0, 131052, 65527, 0, 131060, 65527, 1, 131064, 65527, 1, 65536, 65528, 1073741825, 65537, 65528, -1610612735, 65538, 65528, 1, 65539, 65528, 1, 65540, 65528, 1, 65541, 65528, -2147483647, 65542, 65528, 1, 65543, 65528, 1, 65547, 65528, 1073741825, 65555, 65528, 0, 131052, 65528, 0, 131060, 65528, 1, 131064, 65528, 1073741825, 131069, 65528, 1, 131070, 65528, 1, 131071, 65528, 1, 65537, 65529, 1610612737, 65547, 65529, -536870911, 65551, 65529, 1, 65552, 65529, 1, 65553, 65529, 536870913, 65554, 65529, 1, 65555, 65529, 0, 131052, 65529, 0, 131057, 65529, 1, 131058, 65529, 1, 131059, 65529, 1, 131060, 65529, 1, 131064, 65529, 1, 131069, 65529, 1, 65537, 65530, 1, 65551, 65530, 1, 65555, 65530, 1610612736, 131052, 65530, 0, 131064, 65530, 536870913, 131069, 65530, 1, 65551, 65531, 1, 65555, 65531, -536870912, 131052, 65531, 0, 131064, 65531, -2147483647, 65543, 65532, -2147483647, 65551, 65532, -1610612735, 65555, 65532, 0, 131052, 65532, 0, 131064, 65532, 1, 65543, 65533, -1610612735, 65547, 65533, -1610612735, 65551, 65533, 1, 65555, 65533, 0, 131052, 65533, 0, 131059, 65533, 1, 131064, 65533, 1610612737, 65536, 65534, 536870913, 65537, 65534, -2147483647, 65538, 65534, 1, 65543, 65534, 536870913, 65547, 65534, 1, 65551, 65534, 1, 65555, 65534, -1610612736, 131052, 65534, 0, 131056, 65534, 1610612737, 131057, 65534, -536870911, 131058, 65534, 1, 131059, 65534, 1610612737, 131064, 65534, -1073741823, 131068, 65534, -536870911, 131069, 65534, 536870913, 131070, 65534, 1, 131071, 65534, 1, 65538, 65535, 1, 65543, 65535, 536870913, 65547, 65535, 536870913, 65551, 65535, 1, 65555, 65535, 1610612736, 131052, 65535, 0, 131056, 65535, 1, 131064, 65535, 1, 131068, 65535, 1 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -273,17 +618,53 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -0.5, 0
 
 [node name="Enemy1AnimPlayer" type="AnimationPlayer" parent="Enemies/EnemyHolder1/Enemy1"]
 autoplay = "Enemy1Animation"
-anims/Enemy1Animation = SubResource( 6 )
+anims/Enemy1Animation = SubResource( 4 )
 
 [node name="EnemyHolder2" type="Spatial" parent="Enemies"]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -9.5, 0, 0.583632 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 0, -7.26374 )
 
-[node name="Enemy1" parent="Enemies/EnemyHolder2" instance=ExtResource( 6 )]
+[node name="Enemy2" parent="Enemies/EnemyHolder2" instance=ExtResource( 6 )]
 
-[node name="Enemy1AnimPlayer" type="AnimationPlayer" parent="Enemies/EnemyHolder2/Enemy1"]
+[node name="Enemy2AnimPlayer" type="AnimationPlayer" parent="Enemies/EnemyHolder2/Enemy2"]
 autoplay = "Enemy2Animation"
+anims/Enemy1Animation = SubResource( 5 )
+anims/Enemy2Animation = SubResource( 6 )
+
+[node name="EnemyHolder3" type="Spatial" parent="Enemies"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 7.64858, 0, -13.5 )
+
+[node name="Enemy3" parent="Enemies/EnemyHolder3" instance=ExtResource( 6 )]
+
+[node name="Enemy3AnimPlayer" type="AnimationPlayer" parent="Enemies/EnemyHolder3/Enemy3"]
+autoplay = "Enemy3Animation"
 anims/Enemy1Animation = SubResource( 7 )
 anims/Enemy2Animation = SubResource( 8 )
+anims/Enemy3Animation = SubResource( 9 )
+
+[node name="EnemyHolder4" type="Spatial" parent="Enemies"]
+transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 12.3066, 0, 17.5 )
+
+[node name="Enemy4" parent="Enemies/EnemyHolder4" instance=ExtResource( 6 )]
+
+[node name="Enemy4AnimPlayer" type="AnimationPlayer" parent="Enemies/EnemyHolder4/Enemy4"]
+autoplay = "Enemy4Animation"
+anims/Enemy1Animation = SubResource( 12 )
+anims/Enemy2Animation = SubResource( 13 )
+anims/Enemy3Animation = SubResource( 14 )
+anims/Enemy4Animation = SubResource( 15 )
+
+[node name="EnemyHolder5" type="Spatial" parent="Enemies"]
+transform = Transform( 0.587782, 0, -0.809019, 0, 1, 0, 0.809019, 0, 0.587782, -17.5, 0, 17.5 )
+
+[node name="Enemy5" parent="Enemies/EnemyHolder5" instance=ExtResource( 6 )]
+
+[node name="Enemy5AnimPlayer" type="AnimationPlayer" parent="Enemies/EnemyHolder5/Enemy5"]
+autoplay = "Enemy5Animation"
+anims/Enemy1Animation = SubResource( 16 )
+anims/Enemy2Animation = SubResource( 17 )
+anims/Enemy3Animation = SubResource( 18 )
+anims/Enemy4Animation = SubResource( 19 )
+anims/Enemy5Animation = SubResource( 20 )
 
 [node name="Hud" type="Node" parent="."]
 
@@ -298,37 +679,40 @@ margin_top = -630.0
 margin_bottom = -630.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hud/YouLooseHud"]
-anims/YouLooseHud = SubResource( 4 )
+anims/YouLooseHud = SubResource( 10 )
 
 [node name="YouWinHud" parent="Hud" instance=ExtResource( 5 )]
 margin_top = -630.0
 margin_bottom = -590.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Hud/YouWinHud"]
-anims/YouWinHud = SubResource( 5 )
+anims/YouWinHud = SubResource( 11 )
 [connection signal="YouLoose" from="." to="Hud/YouLooseHud" method="YouLoose"]
 [connection signal="YouLoose" from="." to="Orange/OrangeKinematic" method="YouLoose"]
 [connection signal="YouWin" from="." to="Hud/YouWinHud" method="YouWin"]
 [connection signal="YouWin" from="." to="Orange/OrangeKinematic" method="YouWin"]
-[connection signal="CoinCollected" from="Coins/CoinHolder1/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder1/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder2/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder1/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder2/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder3/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder2/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder3/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder4/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder3/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder4/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder5/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder4/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder5/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder6/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder5/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder6/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder7/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder6/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder7/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder8/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder7/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder8/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder9/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder8/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder9/Coin" to="Hud/CoinHud" method="CoinCollected"]
-[connection signal="CoinCollected" from="Coins/CoinHolder10/Coin" to="." method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder9/Coin" to="." method="CoinCollected"]
 [connection signal="CoinCollected" from="Coins/CoinHolder10/Coin" to="Hud/CoinHud" method="CoinCollected"]
+[connection signal="CoinCollected" from="Coins/CoinHolder10/Coin" to="." method="CoinCollected"]
 [connection signal="YouLooseToRoot" from="Enemies/EnemyHolder1/Enemy1" to="." method="YouLooseToRoot"]
-[connection signal="YouLooseToRoot" from="Enemies/EnemyHolder2/Enemy1" to="." method="YouLooseToRoot"]
+[connection signal="YouLooseToRoot" from="Enemies/EnemyHolder2/Enemy2" to="." method="YouLooseToRoot"]
+[connection signal="YouLooseToRoot" from="Enemies/EnemyHolder3/Enemy3" to="." method="YouLooseToRoot"]
+[connection signal="YouLooseToRoot" from="Enemies/EnemyHolder4/Enemy4" to="." method="YouLooseToRoot"]
+[connection signal="YouLooseToRoot" from="Enemies/EnemyHolder5/Enemy5" to="." method="YouLooseToRoot"]

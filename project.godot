@@ -56,6 +56,11 @@ MoveRight={
 
 [rendering]
 
+quality/shadow_atlas/quadrant_0_subdiv=2
+quality/shadow_atlas/quadrant_1_subdiv=3
+quality/shadow_atlas/quadrant_2_subdiv=4
+quality/shadow_atlas/quadrant_3_subdiv=5
+quality/shadows/filter_mode=2
 quality/filters/msaa=3
-environment/default_environment="res://Scenes/LevelEnvironment.tres"
+environment/default_environment="res://Enviornemnt/LevelEnvironment.tres"
 threads/energy_saving/keep_screen_on=true
