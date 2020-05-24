@@ -9,10 +9,12 @@ public class Coin : Area
 	public AnimationPlayer animationPlayer;
 	public Timer timer;
 	public CollisionShape coinCollision;
+	public AudioStreamPlayer3D audioPlayer;
 
 	public override void _Ready()
 	{
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		audioPlayer = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
 		timer = GetNode<Timer>("Timer");
 		coinCollision = GetNode<CollisionShape>("CoinCollision");
 	}
@@ -29,6 +31,7 @@ public class Coin : Area
 			animationPlayer.Play("CoinBounce");
 			timer.Start();
 			coinCollision.QueueFree();
+			audioPlayer.Play();
 
 			EmitSignal("CoinCollected");
 		}

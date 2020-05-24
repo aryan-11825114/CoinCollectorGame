@@ -1,4 +1,6 @@
 using Godot;
+using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 
 public class GameRule : Node
 {
@@ -29,7 +31,10 @@ public class GameRule : Node
 	{
 		if (Input.IsActionJustPressed("ui_cancel"))
 		{
-			GetTree().ChangeScene("res://Scenes/OrangeMenue.tscn");
+			/*GetTree().ChangeScene("res://Scenes/OrangeMenue.tscn");*/
+		}
+		else if (Input.IsActionPressed("ui_cancel") && GetTree().IsPaused())
+		{
 		}
 	}
 }
