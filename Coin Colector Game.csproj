@@ -68,6 +68,7 @@
     <Compile Include="Scripts\OrangeCamera.cs" />
     <Compile Include="Scripts\Popup.cs" />
     <Compile Include="Scripts\RootScript.cs" />
+    <Compile Include="Scripts\SlowTime.cs" />
     <Compile Include="Scripts\YouLooseMenueButtonPressed.cs" />
     <Compile Include="Scripts\YouWinButton.cs" />
     <Compile Include="Scripts\YouWinHud.cs" />

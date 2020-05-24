@@ -7,5 +7,6 @@ public class YouLooseMenueButtonPressed : Button
 	{
 		GetTree().Paused = false;
 		GetTree().ReloadCurrentScene();
+		Engine.TimeScale = 1;
 	}
 }

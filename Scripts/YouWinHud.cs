@@ -11,23 +11,11 @@ public class YouWinHud : Control
 		timer = GetNode<Timer>("Timer");
 	}
 
-	public override void _Process(float delta)
-	{
-		if (Input.IsActionPressed("ui_cancel"))
-		{
-			Hide();
-		}
-		else if (Input.IsActionPressed("ui_cancel") && GetTree().IsPaused() == false)
-		{
-			Show();
-		}
-	}
-
 	private void YouWin()
 	{
-		Show();
 		animationPlayer.Play("YouWinHud");
 		timer.Start();
+		
 	}
 
 	private void OnTimerTimeOut()

@@ -52,4 +52,8 @@ public class Orange : KinematicBody
 
 		MoveAndSlide(velocity, Vector3.Up);
 	}
+
+	private void YouLoose()
+	{
+	}
 }

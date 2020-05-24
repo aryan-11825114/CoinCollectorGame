@@ -91,5 +91,6 @@ pause_animations = false
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 3 )
 unit_size = 15.0
+max_db = -3.0
 [connection signal="body_entered" from="." to="." method="CoinBodyEntered"]
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeOut"]

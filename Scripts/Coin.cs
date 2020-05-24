@@ -5,7 +5,6 @@ public class Coin : Area
 	[Signal] public delegate void CoinCollected();
 
 	[Export] public float speedMultiplier = 1.0f;
-
 	public AnimationPlayer animationPlayer;
 	public Timer timer;
 	public CollisionShape coinCollision;

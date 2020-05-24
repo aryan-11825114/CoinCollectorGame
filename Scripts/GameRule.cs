@@ -6,13 +6,13 @@ public class GameRule : Node
 
 	[Signal] public delegate void YouLoose();
 
-	[Export] private int coinsToWin = 10;
-	private Timer waitTImer;
+	private int coinsToWin = 10;
+	private Timer waitTimer;
 	private int coinsCollected = 0;
 
 	public override void _Ready()
 	{
-		waitTImer = GetNode<Timer>("WaitTimer");
+		waitTimer = GetNode<Timer>("WaitTimer");
 	}
 
 	private void CoinCollected()
@@ -21,17 +21,22 @@ public class GameRule : Node
 
 		if (coinsCollected == coinsToWin)
 		{
+			waitTimer.Start();
+			Engine.TimeScale = Mathf.Lerp(Engine.TimeScale, 0.0f, 0.4f);
+			
 			EmitSignal("YouWin");
-			waitTImer.Start();
 		}
 	}
 
 	private void YouLooseToRoot()
 	{
+		waitTimer.Start();
+		Engine.TimeScale = Mathf.Lerp(Engine.TimeScale, 0.0f, 0.4f);
+
 		EmitSignal("YouLoose");
-		waitTImer.Start();
 	}
 
+	// Pause when Loosing or Winning
 	private void OnTimerTimeOut()
 	{
 		GetTree().Paused = true;

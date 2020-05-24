@@ -103,7 +103,7 @@ autoplay = "EnemyBounce"
 anims/EnemyBounce = SubResource( 1 )
 
 [node name="EnemyMesh" type="MeshInstance" parent="."]
-transform = Transform( 1.30801, 0, 0, 0, 0.749685, 0, 0, 0, 1.30881, 0, 0.762379, 0 )
+transform = Transform( 1.36973, 0, 0, 0, 0.727516, 0, 0, 0, 1.36973, 0, 0.748304, 0 )
 mesh = SubResource( 3 )
 material/0 = null
 material/1 = null
@@ -119,13 +119,13 @@ shape = SubResource( 4 )
 
 [node name="Particles" parent="EnemyMesh" instance=ExtResource( 3 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.605375, 0 )
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyMesh/Particles"]
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 5 )
 
 [node name="VisibilityEnabler" type="VisibilityEnabler" parent="EnemyMesh/Particles"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 aabb = AABB( -5.93918, -6.71216, -4.82706, 11.8784, 13.4243, 9.65412 )
 
 [node name="HurtAudioPlayer" type="AudioStreamPlayer3D" parent="EnemyMesh"]
@@ -136,5 +136,6 @@ unit_size = 15.0
 [node name="LandAudioPlayer" type="AudioStreamPlayer3D" parent="EnemyMesh"]
 stream = ExtResource( 7 )
 unit_size = 15.0
+bus = "New Bus"
 [connection signal="YouLooseToRoot" from="EnemyMesh" to="." method="YouLoose"]
 [connection signal="body_entered" from="EnemyMesh/Area" to="EnemyMesh" method="EnemyAreaEntered"]

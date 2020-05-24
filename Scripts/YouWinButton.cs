@@ -6,5 +6,6 @@ public class YouWinButton : Button
 	{
 		GetTree().Paused = false;
 		GetTree().ReloadCurrentScene();
+		Engine.TimeScale = 1;
 	}
 }
