@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scenes\YouLooseHud.cs" />
+    <Compile Include="Scripts\Camera.cs" />
     <Compile Include="Scripts\Coin.cs" />
     <Compile Include="Scripts\CoinCounter.cs" />
     <Compile Include="Scripts\CoinRoot.cs" />

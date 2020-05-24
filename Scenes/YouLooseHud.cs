@@ -11,8 +11,21 @@ public class YouLooseHud : Control
 		timer = GetNode<Timer>("Timer");
 	}
 
+	public override void _Process(float delta)
+	{
+		if (Input.IsActionPressed("ui_cancel"))
+		{
+			Hide();
+		}
+		else if (Input.IsActionPressed("ui_cancel") && GetTree().IsPaused() == false)
+		{
+			Show();
+		}
+	}
+
 	private void YouLoose()
 	{
+		Show();
 		animationPlayer.Play("YouLooseHud");
 		timer.Start();
 	}

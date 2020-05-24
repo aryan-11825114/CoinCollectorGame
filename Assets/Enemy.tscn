@@ -1,16 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Imports/EnemyBodyMaterial.material" type="Material" id=1]
 [ext_resource path="res://Imports/EnemyBlackMaterial.material" type="Material" id=2]
 [ext_resource path="res://Assets/EnemyLandParticles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Enemy.cs" type="Script" id=4]
 [ext_resource path="res://Scripts/EnemyRootScript.cs" type="Script" id=5]
+[ext_resource path="res://Imports/Sfx/Hit_Hurt17.wav" type="AudioStream" id=6]
+[ext_resource path="res://Imports/Sfx/Hit_Hurt37.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "EnemyBounce"
 loop = true
 tracks/0/type = "transform"
-tracks/0/path = NodePath("Enemy")
+tracks/0/path = NodePath("EnemyMesh")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -92,33 +94,47 @@ tracks/1/keys = {
 [node name="Enemy" type="Spatial"]
 script = ExtResource( 5 )
 
+[node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
+transform = Transform( 0.77579, 0, 0, 0, 1.09323, 0, 0, 0, 0.847779, 1.38304e-10, 1.83031, 0 )
+aabb = AABB( -0.525677, -1.25626, -0.558084, 1.05135, 2.51252, 1.11617 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "EnemyBounce"
 anims/EnemyBounce = SubResource( 1 )
 
-[node name="Enemy" type="MeshInstance" parent="."]
-transform = Transform( 0.406818, 0, 0, 0, 1.35144, 0, 0, 0, 0.474997, 0, 1.8392, 0 )
+[node name="EnemyMesh" type="MeshInstance" parent="."]
+transform = Transform( 1.30801, 0, 0, 0, 0.749685, 0, 0, 0, 1.30881, 0, 0.762379, 0 )
 mesh = SubResource( 3 )
 material/0 = null
 material/1 = null
 material/2 = null
 script = ExtResource( 4 )
 
-[node name="Area" type="Area" parent="Enemy"]
+[node name="Area" type="Area" parent="EnemyMesh"]
+collision_layer = 2
+collision_mask = 2
 
-[node name="CollisionShape" type="CollisionShape" parent="Enemy/Area"]
+[node name="CollisionShape" type="CollisionShape" parent="EnemyMesh/Area"]
 shape = SubResource( 4 )
 
-[node name="VisibilityEnabler" type="VisibilityEnabler" parent="Enemy"]
-transform = Transform( 1.90697, 0, 0, 0, 0.808937, 0, 0, 0, 1.78481, 3.39966e-10, -0.00657809, 0 )
-aabb = AABB( -0.525677, -1.25626, -0.558084, 1.05135, 2.51252, 1.11617 )
-
-[node name="Particles" parent="Enemy" instance=ExtResource( 3 )]
+[node name="Particles" parent="EnemyMesh" instance=ExtResource( 3 )]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.605375, 0 )
-emitting = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Particles"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyMesh/Particles"]
 autoplay = "New Anim"
 "anims/New Anim" = SubResource( 5 )
-[connection signal="YouLooseToRoot" from="Enemy" to="." method="YouLoose"]
-[connection signal="body_entered" from="Enemy/Area" to="Enemy" method="EnemyAreaEntered"]
+
+[node name="VisibilityEnabler" type="VisibilityEnabler" parent="EnemyMesh/Particles"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+aabb = AABB( -5.93918, -6.71216, -4.82706, 11.8784, 13.4243, 9.65412 )
+
+[node name="HurtAudioPlayer" type="AudioStreamPlayer3D" parent="EnemyMesh"]
+transform = Transform( 0.76452, 0, 0, 0, 1.33389, 0, 0, 0, 0.764052, 0, -1.01693, 0 )
+stream = ExtResource( 6 )
+unit_size = 15.0
+
+[node name="LandAudioPlayer" type="AudioStreamPlayer3D" parent="EnemyMesh"]
+stream = ExtResource( 7 )
+unit_size = 15.0
+[connection signal="YouLooseToRoot" from="EnemyMesh" to="." method="YouLoose"]
+[connection signal="body_entered" from="EnemyMesh/Area" to="EnemyMesh" method="EnemyAreaEntered"]

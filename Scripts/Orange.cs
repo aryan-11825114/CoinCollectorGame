@@ -2,7 +2,6 @@ using Godot;
 
 public class Orange : KinematicBody
 {
-
 	[Export] public float speed = 8.0f;
 	[Export] public float rotationSpeed = 8.0f;
 	[Export] public float slidingSpeed = 0.05f;
@@ -17,16 +16,6 @@ public class Orange : KinematicBody
 	public override void _PhysicsProcess(float delta)
 	{
 		Movement(delta);
-	}
-
-	private void YouLoose()
-	{
-		SetPhysicsProcess(false);
-	}
-
-	private void YouWin()
-	{
-		SetPhysicsProcess(false);
 	}
 
 	private void Movement(float delta)

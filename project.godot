@@ -20,6 +20,10 @@ run/main_scene="res://Scenes/MainMenue.tscn"
 boot_splash/image="res://Imports/Images/OrangeLoadinScreen.png"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [display]
 
 window/size/width=1920

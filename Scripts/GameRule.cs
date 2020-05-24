@@ -1,6 +1,4 @@
 using Godot;
-using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
 
 public class GameRule : Node
 {
@@ -9,8 +7,13 @@ public class GameRule : Node
 	[Signal] public delegate void YouLoose();
 
 	[Export] private int coinsToWin = 10;
-
+	private Timer waitTImer;
 	private int coinsCollected = 0;
+
+	public override void _Ready()
+	{
+		waitTImer = GetNode<Timer>("WaitTimer");
+	}
 
 	private void CoinCollected()
 	{
@@ -19,22 +22,18 @@ public class GameRule : Node
 		if (coinsCollected == coinsToWin)
 		{
 			EmitSignal("YouWin");
+			waitTImer.Start();
 		}
 	}
 
 	private void YouLooseToRoot()
 	{
 		EmitSignal("YouLoose");
+		waitTImer.Start();
 	}
 
-	public override void _Process(float delta)
+	private void OnTimerTimeOut()
 	{
-		if (Input.IsActionJustPressed("ui_cancel"))
-		{
-			/*GetTree().ChangeScene("res://Scenes/OrangeMenue.tscn");*/
-		}
-		else if (Input.IsActionPressed("ui_cancel") && GetTree().IsPaused())
-		{
-		}
+		GetTree().Paused = true;
 	}
 }
