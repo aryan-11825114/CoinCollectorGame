@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Imports/EnemyBodyMaterial.material" type="Material" id=1]
 [ext_resource path="res://Imports/EnemyBlackMaterial.material" type="Material" id=2]
-[ext_resource path="res://Assets/EnemyLandParticles.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Enemy.cs" type="Script" id=4]
 [ext_resource path="res://Scripts/EnemyRootScript.cs" type="Script" id=5]
 [ext_resource path="res://Imports/Sfx/Hit_Hurt17.wav" type="AudioStream" id=6]
-[ext_resource path="res://Imports/Sfx/Hit_Hurt37.wav" type="AudioStream" id=7]
+[ext_resource path="res://Imports/Sfx/Hit_Hurt140.wav" type="AudioStream" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "EnemyBounce"
@@ -62,48 +61,15 @@ surfaces/2 = {
 
 [sub_resource type="SphereShape" id=4]
 
-[sub_resource type="Animation" id=5]
-resource_name = "New Anim"
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 1,
-"values": [  ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:emitting")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.6, 1, 1.5, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ true, false, true, false ]
-}
-
 [node name="Enemy" type="Spatial"]
 script = ExtResource( 5 )
-
-[node name="VisibilityEnabler" type="VisibilityEnabler" parent="."]
-transform = Transform( 0.77579, 0, 0, 0, 1.09323, 0, 0, 0, 0.847779, 1.38304e-10, 1.83031, 0 )
-aabb = AABB( -0.525677, -1.25626, -0.558084, 1.05135, 2.51252, 1.11617 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "EnemyBounce"
 anims/EnemyBounce = SubResource( 1 )
 
 [node name="EnemyMesh" type="MeshInstance" parent="."]
-transform = Transform( 1.36973, 0, 0, 0, 0.727516, 0, 0, 0, 1.36973, 0, 0.748304, 0 )
+transform = Transform( 0.442741, 0, 0, 0, 1.28838, 0, 0, 0, 0.503005, 0, 2.87265, 0 )
 mesh = SubResource( 3 )
 material/0 = null
 material/1 = null
@@ -117,17 +83,6 @@ collision_mask = 2
 [node name="CollisionShape" type="CollisionShape" parent="EnemyMesh/Area"]
 shape = SubResource( 4 )
 
-[node name="Particles" parent="EnemyMesh" instance=ExtResource( 3 )]
-transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.605375, 0 )
-visible = false
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyMesh/Particles"]
-autoplay = "New Anim"
-"anims/New Anim" = SubResource( 5 )
-
-[node name="VisibilityEnabler" type="VisibilityEnabler" parent="EnemyMesh/Particles"]
-aabb = AABB( -5.93918, -6.71216, -4.82706, 11.8784, 13.4243, 9.65412 )
-
 [node name="HurtAudioPlayer" type="AudioStreamPlayer3D" parent="EnemyMesh"]
 transform = Transform( 0.76452, 0, 0, 0, 1.33389, 0, 0, 0, 0.764052, 0, -1.01693, 0 )
 stream = ExtResource( 6 )
@@ -136,6 +91,10 @@ unit_size = 15.0
 [node name="LandAudioPlayer" type="AudioStreamPlayer3D" parent="EnemyMesh"]
 stream = ExtResource( 7 )
 unit_size = 15.0
-bus = "New Bus"
+attenuation_filter_db = 0.0
+
+[node name="VisibilityEnabler" type="VisibilityEnabler" parent="EnemyMesh"]
+transform = Transform( 0.74456, 0, 0, 0, 1.27583, 0, 0, 0, 0.806206, 1.32737e-10, -0.06409, 0 )
+aabb = AABB( -1.37821, -0.717971, -1.23668, 2.75642, 1.59512, 2.47337 )
 [connection signal="YouLooseToRoot" from="EnemyMesh" to="." method="YouLoose"]
 [connection signal="body_entered" from="EnemyMesh/Area" to="EnemyMesh" method="EnemyAreaEntered"]

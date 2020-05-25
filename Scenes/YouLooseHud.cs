@@ -2,24 +2,34 @@ using Godot;
 
 public class YouLooseHud : Control
 {
-	public AnimationPlayer animationPlayer;
-	public Timer timer;
+	private AnimationPlayer animationPlayer;
+	private AudioStreamPlayer youLooseButtonAudio;
+	private Timer youLooseButtonTimer;
 
 	public override void _Ready()
 	{
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-		timer = GetNode<Timer>("Timer");
+		youLooseButtonAudio = (AudioStreamPlayer)FindNode("YouLooseButtonAudio");
+		youLooseButtonTimer = (Timer)FindNode("YouLooseButtonTimer");
 	}
 
+	// When lost
 	private void YouLoose()
 	{
-		GetTree().GetRoot().SetBlockSignals(true);
 		animationPlayer.Play("YouLooseHud");
-		timer.Start();
 	}
 
-	private void OnTimerTimeOut()
+	// YouLoose Hud button
+	private void YouLooseHudButtonPressed()
 	{
-		animationPlayer.QueueFree();
+		youLooseButtonAudio.Play();
+		youLooseButtonTimer.Start();
+	}
+
+	private void OnYouLooseButtonTimerTimeOut()
+	{
+		GetTree().Paused = false;
+		GetTree().ReloadCurrentScene();
+		Engine.TimeScale = 1;
 	}
 }

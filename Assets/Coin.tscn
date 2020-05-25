@@ -92,5 +92,6 @@ pause_animations = false
 stream = ExtResource( 3 )
 unit_size = 15.0
 max_db = -3.0
+attenuation_filter_db = 0.0
 [connection signal="body_entered" from="." to="." method="CoinBodyEntered"]
 [connection signal="timeout" from="Timer" to="." method="OnTimerTimeOut"]

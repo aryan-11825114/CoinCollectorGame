@@ -2,22 +2,23 @@ using Godot;
 
 public class Orange : KinematicBody
 {
-	[Export] public float speed = 8.0f;
-	[Export] public float rotationSpeed = 8.0f;
-	[Export] public float slidingSpeed = 0.05f;
-	public MeshInstance mesh;
-	public Vector3 velocity;
+	[Export] private float speed = 8.0f;
+	[Export] private float rotationSpeed = 8.0f;
+	[Export] private float slidingSpeed = 0.05f;
+	private MeshInstance mesh;
+	private Vector3 velocity;
 
 	public override void _Ready()
 	{
 		mesh = GetNode<MeshInstance>("OrangeMesh");
 	}
-
+	
 	public override void _PhysicsProcess(float delta)
 	{
 		Movement(delta);
 	}
 
+	// Movement
 	private void Movement(float delta)
 	{
 		if (Input.IsActionPressed("MoveForward"))
@@ -51,9 +52,5 @@ public class Orange : KinematicBody
 		}
 
 		MoveAndSlide(velocity, Vector3.Up);
-	}
-
-	private void YouLoose()
-	{
 	}
 }

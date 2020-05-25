@@ -12,13 +12,15 @@ public class GameRule : Node
 
 	public override void _Ready()
 	{
-		waitTimer = GetNode<Timer>("WaitTimer");
+		waitTimer = GetNode<Timer>("LevelEnder");
 	}
-
+	
+	// When Coin is colleccted 
 	private void CoinCollected()
 	{
 		coinsCollected += 1;
 
+		// Emit Signal when won and of course slow mo
 		if (coinsCollected == coinsToWin)
 		{
 			waitTimer.Start();
@@ -28,6 +30,7 @@ public class GameRule : Node
 		}
 	}
 
+	// Emit Signla on loose and slow mo
 	private void YouLooseToRoot()
 	{
 		waitTimer.Start();

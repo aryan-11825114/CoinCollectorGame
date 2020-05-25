@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Imports/Fonts/BalsamiqSans-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Imports/Images/OrangeSprite.png" type="Texture" id=2]
+[ext_resource path="res://Imports/Images/Orange.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/MainMenue.cs" type="Script" id=3]
-[ext_resource path="res://Scripts/ExitMainMeneButton2.cs" type="Script" id=4]
+[ext_resource path="res://Imports/Sfx/ButtonPressed.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 120
@@ -13,14 +13,15 @@ font_data = ExtResource( 1 )
 size = 80
 font_data = ExtResource( 1 )
 
-[node name="OrangeMenue" type="Control"]
+[node name="MainMenue" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="BackGround" type="ColorRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -34,7 +35,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="ColorRect"]
+[node name="OrangeTxt" type="Label" parent="BackGround"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -50,7 +51,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MainMeneButton" type="Button" parent="ColorRect"]
+[node name="MMPlayButton" type="Button" parent="BackGround"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -60,15 +61,16 @@ margin_top = 2.42511
 margin_right = 109.704
 margin_bottom = 160.425
 custom_fonts/font = SubResource( 2 )
-action_mode = 0
 text = "PLAY"
 flat = true
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ExitMainMeneButton2" type="Button" parent="ColorRect"]
+[node name="PlayButtonAudio" type="AudioStreamPlayer" parent="BackGround/MMPlayButton"]
+stream = ExtResource( 4 )
+
+[node name="MMExitButton" type="Button" parent="BackGround"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -81,14 +83,20 @@ custom_fonts/font = SubResource( 2 )
 action_mode = 0
 text = "EXIT"
 flat = true
-script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OrangeSprite" type="Sprite" parent="ColorRect"]
+[node name="ExitButtonAudio" type="AudioStreamPlayer" parent="BackGround/MMExitButton"]
+stream = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="BackGround/MMExitButton"]
+wait_time = 0.14
+
+[node name="OrangeImg" type="Sprite" parent="BackGround"]
 position = Vector2( 1247.85, 447.897 )
 scale = Vector2( 0.483262, 0.483262 )
 texture = ExtResource( 2 )
-[connection signal="pressed" from="ColorRect/MainMeneButton" to="ColorRect/MainMeneButton" method="MainMenueButtonPressed"]
-[connection signal="pressed" from="ColorRect/ExitMainMeneButton2" to="ColorRect/ExitMainMeneButton2" method="ExitMainMeneButtonPressed"]
+[connection signal="pressed" from="BackGround/MMPlayButton" to="." method="PlayButtonPressed"]
+[connection signal="pressed" from="BackGround/MMExitButton" to="." method="ExitButtonPressed"]
+[connection signal="timeout" from="BackGround/MMExitButton/Timer" to="." method="OnTimerTimeOut"]

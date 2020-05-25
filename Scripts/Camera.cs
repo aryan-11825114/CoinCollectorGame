@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class Camera : InterpolatedCamera
 {
@@ -18,12 +17,20 @@ public class Camera : InterpolatedCamera
 		timer = GetNode<Timer>("Timer");
 	}
 
+
+	public override void _Process(float delta)
+	{
+		CameraShake(delta);
+	}
+
+	// Trauma
 	public void AddTrauma(float traumaIn)
 	{
 		trauma = Mathf.Clamp(trauma + traumaIn, 0, 1);
 	}
 
-	public override void _Process(float delta)
+	// Camera Shake
+	private void CameraShake(float delta)
 	{
 		time += delta;
 
@@ -31,19 +38,16 @@ public class Camera : InterpolatedCamera
 		HOffset = noise.GetNoise3d(time * timeScale, 0f, 0f) * maxX * shake;
 		VOffset = noise.GetNoise3d(0f, time * timeScale, 0f) * maxY * shake;
 		RotateZ(noise.GetNoise3d(0f, 0f, time * timeScale) * maxR * shake);
-
-		if (trauma > 0)
-		{
-			Mathf.Clamp(trauma - (delta * easingValue), 0, 1);
-		}
 	}
 
+	// Add Trauma when enemy is hit
 	private void EnemyHit()
 	{
 		AddTrauma(0.3f);
 		timer.Start();
 	}
 
+	// When the timer times out set it back to 0
 	private void TimerTimeOut()
 	{
 		trauma = Mathf.Clamp(trauma - (GetProcessDeltaTime() * easingValue), 0, 1);

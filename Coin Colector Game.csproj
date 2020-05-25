@@ -65,12 +65,8 @@
     <Compile Include="Scripts\GameRule.cs" />
     <Compile Include="Scripts\MainMenue.cs" />
     <Compile Include="Scripts\Orange.cs" />
-    <Compile Include="Scripts\OrangeCamera.cs" />
-    <Compile Include="Scripts\Popup.cs" />
+    <Compile Include="Scripts\PasueMenue.cs" />
     <Compile Include="Scripts\RootScript.cs" />
-    <Compile Include="Scripts\SlowTime.cs" />
-    <Compile Include="Scripts\YouLooseMenueButtonPressed.cs" />
-    <Compile Include="Scripts\YouWinButton.cs" />
     <Compile Include="Scripts\YouWinHud.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

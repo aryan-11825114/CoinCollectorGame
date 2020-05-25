@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "ImageTexture",
+"class": "CustomGradientTexture",
+"language": "GDScript",
+"path": "res://Assets/maujoe.custom_gradient_texture/custom_gradient_texture.gd"
+} ]
 _global_script_class_icons={
-
+"CustomGradientTexture": ""
 }
 
 [application]
@@ -66,6 +71,7 @@ MoveRight={
 
 [rendering]
 
+threads/thread_model=2
 quality/shadow_atlas/quadrant_0_subdiv=2
 quality/shadow_atlas/quadrant_1_subdiv=3
 quality/shadow_atlas/quadrant_2_subdiv=4
