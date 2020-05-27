@@ -18,6 +18,7 @@ public class MainMenue : Control
 	{
 		playButtonAudio.Play();
 		GetTree().ChangeScene("res://Scenes/Level.tscn");
+		Input.SetMouseMode(Input.MouseMode.Captured);
 	}
 
 	// Exit Buttom

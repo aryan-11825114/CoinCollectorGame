@@ -20,6 +20,7 @@ public class PasueMenue : Godot.Popup
 		// Show the pause menue when escape button is pressed
 		if (Input.IsActionPressed("ui_cancel") && !GetTree().IsPaused())
 		{
+			Input.SetMouseMode(Input.MouseMode.Visible);
 			Show();
 			GetTree().Paused = true;
 		}
@@ -34,6 +35,7 @@ public class PasueMenue : Godot.Popup
 
 	private void OnResumeTimerTimeOut()
 	{
+		Input.SetMouseMode(Input.MouseMode.Captured);
 		GetTree().Paused = false;
 		Hide();
 	}
@@ -60,6 +62,7 @@ public class PasueMenue : Godot.Popup
 
 	private void OnRestartTimerTimeOut()
 	{
+		Input.SetMouseMode(Input.MouseMode.Captured);
 		GetTree().Paused = false;
 		GetTree().ReloadCurrentScene();
 		Hide();

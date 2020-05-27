@@ -14,8 +14,8 @@ public class GameRule : Node
 	{
 		waitTimer = GetNode<Timer>("LevelEnder");
 	}
-	
-	// When Coin is colleccted 
+
+	// When Coin is colleccted
 	private void CoinCollected()
 	{
 		coinsCollected += 1;
@@ -25,7 +25,7 @@ public class GameRule : Node
 		{
 			waitTimer.Start();
 			Engine.TimeScale = Mathf.Lerp(Engine.TimeScale, 0.0f, 0.4f);
-			
+
 			EmitSignal("YouWin");
 		}
 	}

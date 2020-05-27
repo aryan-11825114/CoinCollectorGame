@@ -16,6 +16,7 @@ public class YouLooseHud : Control
 	// When lost
 	private void YouLoose()
 	{
+		Input.SetMouseMode(Input.MouseMode.Visible);
 		animationPlayer.Play("YouLooseHud");
 	}
 
@@ -28,6 +29,7 @@ public class YouLooseHud : Control
 
 	private void OnYouLooseButtonTimerTimeOut()
 	{
+		Input.SetMouseMode(Input.MouseMode.Captured);
 		GetTree().Paused = false;
 		GetTree().ReloadCurrentScene();
 		Engine.TimeScale = 1;

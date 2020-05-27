@@ -1,10 +1,12 @@
 using Godot;
+using System.ComponentModel;
+using System.IO;
 
 public class Orange : KinematicBody
 {
-	[Export] private float speed = 8.0f;
-	[Export] private float rotationSpeed = 8.0f;
-	[Export] private float slidingSpeed = 0.05f;
+	[Export] private float speed = 10.0f;
+	[Export] private float rotationSpeed = 1.25f;
+	[Export] private float acceleration = 10f;
 	private MeshInstance mesh;
 	private Vector3 velocity;
 
@@ -12,7 +14,7 @@ public class Orange : KinematicBody
 	{
 		mesh = GetNode<MeshInstance>("OrangeMesh");
 	}
-	
+
 	public override void _PhysicsProcess(float delta)
 	{
 		Movement(delta);
@@ -21,36 +23,36 @@ public class Orange : KinematicBody
 	// Movement
 	private void Movement(float delta)
 	{
+		Vector3 direction = new Vector3();
+		
 		if (Input.IsActionPressed("MoveForward"))
 		{
-			velocity.z = -speed;
-			mesh.RotateX(Mathf.Deg2Rad(-rotationSpeed));
+			direction -= Transform.basis.z;
+			mesh.RotateX(Mathf.Deg2Rad(velocity.z * rotationSpeed));
 		}
-		else if (Input.IsActionPressed("MoveBackward"))
+
+		if (Input.IsActionPressed("MoveBackward"))
 		{
-			velocity.z = speed;
-			mesh.RotateX(Mathf.Deg2Rad(rotationSpeed));
-		}
-		else
-		{
-			velocity.z = Mathf.Lerp(velocity.z, 0.0f, slidingSpeed);
+			direction += Transform.basis.z;
+			mesh.RotateX(Mathf.Deg2Rad(velocity.z * rotationSpeed));
 		}
 
 		if (Input.IsActionPressed("MoveLeft"))
 		{
-			velocity.x = -speed;
-			mesh.RotateZ(Mathf.Deg2Rad(rotationSpeed));
-		}
-		else if (Input.IsActionPressed("MoveRight"))
-		{
-			velocity.x = speed;
-			mesh.RotateZ(Mathf.Deg2Rad(-rotationSpeed));
-		}
-		else
-		{
-			velocity.x = Mathf.Lerp(velocity.x, 0.0f, slidingSpeed);
+			direction -= Transform.basis.x;	
+			mesh.RotateZ(Mathf.Deg2Rad(-velocity.x * rotationSpeed));
 		}
 
-		MoveAndSlide(velocity, Vector3.Up);
+		if (Input.IsActionPressed("MoveRight"))
+		{
+			direction += Transform.basis.x;
+			mesh.RotateZ(Mathf.Deg2Rad(-velocity.x * rotationSpeed));
+		}
+
+		direction = direction.Normalized();
+
+		velocity = velocity.LinearInterpolate(direction * speed, acceleration * delta);
+
+		MoveAndSlide(velocity);
 	}
 }

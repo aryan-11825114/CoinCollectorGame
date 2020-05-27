@@ -15,6 +15,7 @@ public class YouWinHud : Control
 
 	private void YouWin()
 	{
+		Input.SetMouseMode(Input.MouseMode.Visible);
 		animationPlayer.Play("YouWinHud");
 	}
 
@@ -27,6 +28,7 @@ public class YouWinHud : Control
 
 	private void OnYouWinButtonTimerTimeOut()
 	{
+		Input.SetMouseMode(Input.MouseMode.Captured);
 		GetTree().Paused = false;
 		GetTree().ReloadCurrentScene();
 		Engine.TimeScale = 1;
