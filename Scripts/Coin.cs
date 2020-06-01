@@ -6,37 +6,32 @@ public class Coin : Area
 
 	[Export] public float speedMultiplier = 1.0f;
 	public AnimationPlayer animationPlayer;
-	public Timer timer;
-	public CollisionShape coinCollision;
 	public AudioStreamPlayer3D audioPlayer;
+	public CollisionShape coinCollision;
+	public Timer timer;
 
-	public override void _Ready()
-	{
-		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+	public override void _Ready() {
 		audioPlayer = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
-		timer = GetNode<Timer>("Timer");
+		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		coinCollision = GetNode<CollisionShape>("CoinCollision");
+		timer = GetNode<Timer>("Timer");
 	}
 
-	public override void _PhysicsProcess(float delta)
-	{
+	public override void _PhysicsProcess(float delta) {
 		this.RotateY(Mathf.Deg2Rad(delta * 100 * speedMultiplier));
 	}
 
-	private void CoinBodyEntered(object body)
-	{
-		if (body.GetType().Name == "Orange")
-		{
+	private void CoinBodyEntered(object body) {
+		if (body.GetType().Name == "Orange") {
 			animationPlayer.Play("CoinBounce");
-			timer.Start();
 			coinCollision.QueueFree();
 			audioPlayer.Play();
+			timer.Start();
 
 			EmitSignal("CoinCollected");
 		}
 	}
-	private void OnTimerTimeOut()
-	{
+	private void OnTimerTimeOut() {
 		this.QueueFree();
 	}
 }

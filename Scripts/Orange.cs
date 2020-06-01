@@ -4,47 +4,40 @@ using System.IO;
 
 public class Orange : KinematicBody
 {
-	[Export] private float speed = 10.0f;
-	[Export] private float rotationSpeed = 1.25f;
-	[Export] private float acceleration = 10f;
-	private MeshInstance mesh;
+	[Export] public float speed = 10.0f;
+	[Export] public float rotationSpeed = 1.25f;
+	[Export] public float acceleration = 10f;
+	public MeshInstance mesh;
+	
 	private Vector3 velocity;
 
-	public override void _Ready()
-	{
+	public override void _Ready() {
 		mesh = GetNode<MeshInstance>("OrangeMesh");
 	}
 
-	public override void _PhysicsProcess(float delta)
-	{
+	public override void _PhysicsProcess(float delta) {
 		Movement(delta);
 	}
 
-	// Movement
-	private void Movement(float delta)
-	{
+	private void Movement(float delta) {
 		Vector3 direction = new Vector3();
 		
-		if (Input.IsActionPressed("MoveForward"))
-		{
+		if (Input.IsActionPressed("MoveForward")) {
+			mesh.RotateX(Mathf.Deg2Rad(velocity.z * rotationSpeed));
 			direction -= Transform.basis.z;
-			mesh.RotateX(Mathf.Deg2Rad(velocity.z * rotationSpeed));
 		}
 
-		if (Input.IsActionPressed("MoveBackward"))
-		{
+		if (Input.IsActionPressed("MoveBackward")) {
+			mesh.RotateX(Mathf.Deg2Rad(velocity.z * rotationSpeed));
 			direction += Transform.basis.z;
-			mesh.RotateX(Mathf.Deg2Rad(velocity.z * rotationSpeed));
 		}
 
-		if (Input.IsActionPressed("MoveLeft"))
-		{
-			direction -= Transform.basis.x;	
+		if (Input.IsActionPressed("MoveLeft")) {
 			mesh.RotateZ(Mathf.Deg2Rad(-velocity.x * rotationSpeed));
+			direction -= Transform.basis.x;	
 		}
 
-		if (Input.IsActionPressed("MoveRight"))
-		{
+		if (Input.IsActionPressed("MoveRight")) {
 			direction += Transform.basis.x;
 			mesh.RotateZ(Mathf.Deg2Rad(-velocity.x * rotationSpeed));
 		}

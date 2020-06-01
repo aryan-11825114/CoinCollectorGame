@@ -2,32 +2,27 @@ using Godot;
 
 public class YouWinHud : Control
 {
-	private AnimationPlayer animationPlayer;
-	private AudioStreamPlayer youWinButtonAudio;
-	private Timer youWinButtonTimer;
+	public AudioStreamPlayer youWinButtonAudio;
+	public AnimationPlayer animationPlayer;
+	public Timer youWinButtonTimer;
 
-	public override void _Ready()
-	{
-		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+	public override void _Ready() {
 		youWinButtonAudio = (AudioStreamPlayer)FindNode("YouWinButtonAudio");
+		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		youWinButtonTimer = (Timer)FindNode("YouWinButtonTimer");
 	}
 
-	private void YouWin()
-	{
+	private void YouWin() {
 		Input.SetMouseMode(Input.MouseMode.Visible);
 		animationPlayer.Play("YouWinHud");
 	}
 
-	// You Win Button
-	private void YouButtonPressed()
-	{
-		youWinButtonAudio.Play();
+	private void YouButtonPressed() {
 		youWinButtonTimer.Start();
+		youWinButtonAudio.Play();
 	}
 
-	private void OnYouWinButtonTimerTimeOut()
-	{
+	private void OnYouWinButtonTimerTimeOut() {
 		Input.SetMouseMode(Input.MouseMode.Captured);
 		GetTree().Paused = false;
 		GetTree().ReloadCurrentScene();

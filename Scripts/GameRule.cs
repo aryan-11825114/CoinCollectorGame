@@ -2,27 +2,22 @@ using Godot;
 
 public class GameRule : Node
 {
+	[Signal] public delegate void YouLoose();
 	[Signal] public delegate void YouWin();
 
-	[Signal] public delegate void YouLoose();
-
-	private int coinsToWin = 10;
-	private Timer waitTimer;
+	public Timer waitTimer;
+	
 	private int coinsCollected = 0;
+	private int coinsToWin = 10;
 
-	public override void _Ready()
-	{
+	public override void _Ready() {
 		waitTimer = GetNode<Timer>("LevelEnder");
 	}
 
-	// When Coin is colleccted
-	private void CoinCollected()
-	{
+	private void CoinCollected() {
 		coinsCollected += 1;
 
-		// Emit Signal when won and of course slow mo
-		if (coinsCollected == coinsToWin)
-		{
+		if (coinsCollected == coinsToWin) {
 			waitTimer.Start();
 			Engine.TimeScale = Mathf.Lerp(Engine.TimeScale, 0.0f, 0.4f);
 
@@ -30,18 +25,14 @@ public class GameRule : Node
 		}
 	}
 
-	// Emit Signla on loose and slow mo
-	private void YouLooseToRoot()
-	{
+	private void YouLooseToRoot() {
 		waitTimer.Start();
 		Engine.TimeScale = Mathf.Lerp(Engine.TimeScale, 0.0f, 0.4f);
 
 		EmitSignal("YouLoose");
 	}
 
-	// Pause when Loosing or Winning
-	private void OnTimerTimeOut()
-	{
+	private void OnTimerTimeOut() {
 		GetTree().Paused = true;
 	}
 }

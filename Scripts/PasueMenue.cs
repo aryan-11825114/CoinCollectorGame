@@ -2,66 +2,53 @@ using Godot;
 
 public class PasueMenue : Godot.Popup
 {
-	private AudioStreamPlayer buttonAudio;
-	private Timer resumeTimer;
-	private Timer restartTimer;
-	private Timer mainMenueTimer;
+	public AudioStreamPlayer buttonAudio;
+	public Timer mainMenueTimer;
+	public Timer restartTimer;
+	public Timer resumeTimer;
 
-	public override void _Ready()
-	{
+	public override void _Ready() {
 		buttonAudio = GetNode<AudioStreamPlayer>("ButtonAudio");
-		resumeTimer = (Timer)FindNode("ResumeTimer");
-		restartTimer = (Timer)FindNode("RestartTimer");
 		mainMenueTimer = (Timer)FindNode("MainMenueTimer");
+		restartTimer = (Timer)FindNode("RestartTimer");
+		resumeTimer = (Timer)FindNode("ResumeTimer");
 	}
 
-	public override void _Process(float delta)
-	{
-		// Show the pause menue when escape button is pressed
-		if (Input.IsActionPressed("ui_cancel") && !GetTree().IsPaused())
-		{
+	public override void _Process(float delta) 	{
+		if (Input.IsActionPressed("ui_cancel") && !GetTree().Paused) {
 			Input.SetMouseMode(Input.MouseMode.Visible);
 			Show();
 			GetTree().Paused = true;
 		}
 	}
 
-	// Resume Button
-	private void ResumeButtonPressed()
-	{
-		buttonAudio.Play();
+	private void ResumeButtonPressed() {
 		resumeTimer.Start();
+		buttonAudio.Play();
 	}
 
-	private void OnResumeTimerTimeOut()
-	{
+	private void OnResumeTimerTimeOut() {
 		Input.SetMouseMode(Input.MouseMode.Captured);
 		GetTree().Paused = false;
 		Hide();
 	}
 
-	// MainMenueButton
-	private void MainMenueButtonPressed()
-	{
-		buttonAudio.Play();
+	private void MainMenueButtonPressed() {
 		mainMenueTimer.Start();
+		buttonAudio.Play();
 	}
 
-	private void OnMainMenueTimerTimeOut()
-	{
+	private void OnMainMenueTimerTimeOut() {
 		GetTree().Paused = false;
 		GetTree().ChangeScene("res://Scenes/MainMenue.tscn");
 	}
 
-	// Restart Button
-	private void RestartButtonPressed()
-	{
+	private void RestartButtonPressed() {
 		buttonAudio.Play();
 		restartTimer.Start();
 	}
 
-	private void OnRestartTimerTimeOut()
-	{
+	private void OnRestartTimerTimeOut() {
 		Input.SetMouseMode(Input.MouseMode.Captured);
 		GetTree().Paused = false;
 		GetTree().ReloadCurrentScene();
