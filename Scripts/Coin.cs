@@ -10,19 +10,23 @@ public class Coin : Area
 	public CollisionShape coinCollision;
 	public Timer timer;
 
-	public override void _Ready() {
+	public override void _Ready() 
+	{
 		audioPlayer = GetNode<AudioStreamPlayer3D>("AudioStreamPlayer3D");
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		coinCollision = GetNode<CollisionShape>("CoinCollision");
 		timer = GetNode<Timer>("Timer");
 	}
 
-	public override void _PhysicsProcess(float delta) {
-		this.RotateY(Mathf.Deg2Rad(delta * 100 * speedMultiplier));
+	public override void _PhysicsProcess(float delta) 
+	{
+		RotateY(Mathf.Deg2Rad(delta * 100 * speedMultiplier));
 	}
 
-	private void CoinBodyEntered(object body) {
-		if (body.GetType().Name == "Orange") {
+	private void CoinBodyEntered(object body) 
+	{
+		if (body.GetType().Name == "Orange") 
+		{
 			animationPlayer.Play("CoinBounce");
 			coinCollision.QueueFree();
 			audioPlayer.Play();
@@ -31,7 +35,8 @@ public class Coin : Area
 			EmitSignal("CoinCollected");
 		}
 	}
-	private void OnTimerTimeOut() {
-		this.QueueFree();
+	private void OnTimerTimeOut() 
+	{
+		QueueFree();
 	}
 }

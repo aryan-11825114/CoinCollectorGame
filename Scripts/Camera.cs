@@ -13,19 +13,23 @@ public class Camera : InterpolatedCamera
 	private float time = 0.0f;
 	private Timer timer;
 
-	public override void _Ready() {
+	public override void _Ready() 
+	{
 		timer = GetNode<Timer>("Timer");
 	}
 
-	public override void _Process(float delta) {
+	public override void _Process(float delta) 
+	{
 		CameraShake(delta);
 	}
 
-	public void AddTrauma(float traumaIn) {
+	public void AddTrauma(float traumaIn) 
+	{
 		trauma = Mathf.Clamp(trauma + traumaIn, 0, 1);
 	}
-
-	private void CameraShake(float delta) {
+	
+	private void CameraShake(float delta) 
+	{
 		time += delta;
 
 		float shake = Mathf.Pow(trauma, 2);
@@ -35,12 +39,14 @@ public class Camera : InterpolatedCamera
 		RotateZ(noise.GetNoise3d(0f, 0f, time * timeScale) * maxR * shake);
 	}
 
-	private void EnemyHit() {
+	private void EnemyHit() 
+	{
 		AddTrauma(0.3f);
 		timer.Start();
 	}
 
-	private void TimerTimeOut() {
+	private void TimerTimeOut() 
+	{
 		trauma = Mathf.Clamp(trauma - (GetProcessDeltaTime() * easingValue), 0, 1);
 	}
 }
